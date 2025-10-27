@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const driverSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -16,6 +16,15 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     otp: {
+      type: String,
+    },
+    age: {
+      type: String,
+    },
+    skill: {
+      type: String,
+    },
+    experience: {
       type: String,
     },
     name: {
@@ -37,6 +46,9 @@ const userSchema = new mongoose.Schema(
       imageUrl: {
         type: String,
       },
+      ifsc: { type: String },
+      bank: { type: String },
+      accountNo: { type: String },
     },
     drivingLicence: {
       frontImage: {
@@ -45,16 +57,29 @@ const userSchema = new mongoose.Schema(
       backImage: {
         type: String,
       },
+      drivingLicenseNo: { type: String },
     },
     isVerified: {
       type: Boolean,
       default: false,
     },
-    regiStatus : {type : String, default : 'cre'}
+    isMobileVerified: {
+      type: Boolean,
+      default: false,
+    },
+    isActingDriver: {
+      type: Boolean,
+      default: false,
+    },
+    driverLocation : {
+      latitude : {type : Number},
+      longitude : {type : Number}
+    },
+    regiStatus: { type: String, default: "cre" },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("Driver", driverSchema);
