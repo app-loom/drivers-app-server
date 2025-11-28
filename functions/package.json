@@ -17,6 +17,7 @@
     "express": "^5.1.0",
     "firebase": "^12.3.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.19.1"
+    "mongoose": "^8.19.1",
+    "uuid": "^13.0.0"
   }
 }

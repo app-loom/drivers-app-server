@@ -1,7 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const driverRoutes = require('./routes/driver') 
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const driverRoutes = require("./routes/driver");
+const userRoutes = require("./routes/Users");
+const rideRoutes = require("./routes/rideRoutes");
 
 require("dotenv").config();
 
@@ -19,14 +21,16 @@ connection.once("open", () => {
   console.info("MongoDB database connection established successfully");
 });
 
-app.use("/user", driverRoutes);
+app.use("/driver", driverRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Server is running');
+app.use("/users", userRoutes);
+app.use("/rides", rideRoutes);
+app.get("/", (req, res) => {
+  res.send("Server is running");
 });
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT,  "0.0.0.0",  () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on ${PORT}`);
 });

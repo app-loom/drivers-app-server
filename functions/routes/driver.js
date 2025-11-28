@@ -287,6 +287,7 @@ router.route("/update").post((req, res) => {
 
 router.route("/updateLocation").post((req, res) => {
   const { driverId, latitude, longitude } = req.body;
+  console.log(req.body)
 
   Driver.findByIdAndUpdate(
     { _id: driverId },
