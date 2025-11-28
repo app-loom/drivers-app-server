@@ -22,9 +22,9 @@ connection.once("open", () => {
 });
 
 app.use("/driver", driverRoutes);
+app.use("/user", userRoutes);
+app.use("/ride", rideRoutes);
 
-app.use("/users", userRoutes);
-app.use("/rides", rideRoutes);
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
